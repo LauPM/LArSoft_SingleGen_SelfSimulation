@@ -11,15 +11,13 @@ process_name: G4Stage1
 
 services:
 {
-  TFileService: { fileName: "g4_protodune-sp_hist.root" }
+  TFileService: { fileName: "g4_stage1_protodune-sp_hist.root" }
   TimeTracker:       {}
-  MemoryTracker:     {} # default is one
+  MemoryTracker:     {}     #default is one
   RandomNumberGenerator: {} #ART native random number generator
-  message:      @local::standard_info
-  
-  @table::protodunehd_larg4_services
-
-  NuRandomService:       @local::dune_prod_seedservice
+  message:         @local::standard_info
+                   @table::protodunehd_larg4_services
+  NuRandomService: @local::dune_prod_seedservice
 }
 
 
@@ -63,7 +61,8 @@ outputs:
   out1:
   {
     module_type: RootOutput
-    fileName:    "%ifb_g4_stage1.root"
+    # fileName:    "%ifb_g4_stage1_gen.root" 
+    fileName:    "protodune-sp_muonLaura_1GeV_mono_g4_stage1_gen.root" #default file name, can override from command line with -o or --output
     dataTier:    "simulated"
     outputCommands: [ "keep *" ]
     #outputCommands: [ "keep *", "drop sim::SimEnergyDeposits_largeant_*_G4"]

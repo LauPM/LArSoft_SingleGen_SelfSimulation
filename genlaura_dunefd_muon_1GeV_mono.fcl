@@ -2,7 +2,6 @@
 
 process_name: SinglesGen
 
-outputs.out1.fileName:  "gen_dunefd_muonLaura_1GeV_mono.root"
 
 services:
 {
@@ -31,6 +30,7 @@ physics.producers.generator.Theta0YZ: [ 0. ]       # y-latitude
 physics.producers.generator.SigmaThetaXZ: [ 0.0 ]  # Quasi-isotropic
 physics.producers.generator.SigmaThetaYZ: [ 0.0 ]
 
-services.TFileService.fileName: "gen_dunefd_muonLaura_1GeV_mono_hist.root"
-services.PhotonVisibilityService: @local::dune10kt_1x2x6_photonvisibilityservice
 source.maxEvents: 10
+services.TFileService.fileName: "gen_dunefd_muonLaura_1GeV_mono_hist.root"
+outputs.out1.fileName:          "gen_dunefd_muonLaura_1GeV_mono_gen.root" #default file name, can override from command line with -o or --output
+services.PhotonVisibilityService: @local::dune10kt_1x2x6_photonvisibilityservice

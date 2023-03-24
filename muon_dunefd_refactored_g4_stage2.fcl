@@ -8,7 +8,7 @@ process_name: G4Stage2
 
 services:
 {
-  TFileService:          { fileName: "g4_protoDUNE_hist.root" }
+  TFileService:          { fileName: "g4_stage2_dunefd_hist.root" }
   TimeTracker:           {}
   MemoryTracker:         {} # default is one
   RandomNumberGenerator: {} #ART native random number generator
@@ -24,7 +24,7 @@ source:
 {
   module_type: RootInput
   maxEvents:  30000
-  fileNames: ["g4_stage1_protoDUNE.root"]
+  fileNames: ["g4_stage1_dunefd.root"]
 }
 
 physics:
@@ -55,7 +55,8 @@ outputs:
   out1:
   {
     module_type: RootOutput
-    fileName:    "%ifb_g4_stage2.root"
+    # fileName:    "%ifb_g4_stage2_gen.root" 
+    fileName:    "dunefd_muonLaura_1GeV_mono_g4_stage1_g4_stage2_gen.root" #default file name, can override from command line with -o or --output
     dataTier:    "simulated"
     # outputCommands: [ "keep *", "drop sim::SimEnergyDeposits_largeant_*_*"]
     outputCommands: [ "keep *" ]
