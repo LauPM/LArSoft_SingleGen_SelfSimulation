@@ -12,7 +12,7 @@ services:
   MemoryTracker:     @local::dune_memory_tracker
   RandomNumberGenerator: {} #ART native random number generator
   FileCatalogMetadata:  @local::art_file_catalog_mc
-  @table::protodune_minimal_simulation_services
+                        @table::protodune_minimal_simulation_services
  # no particleInventory services etc.
 }
 
@@ -44,7 +44,7 @@ outputs:
   out1:
   {
     module_type: RootOutput
-    # fileName:    "%ifb_g4_stage1_gen.root" 
+    # fileName:    "%ifb_detsim_stage1_gen.root" 
     fileName:    "protodune-sp_muonLaura_1GeV_mono_g4_stage1_g4_stage2_detsim_stage1_gen.root" #default file name, can override from command line with -o or --output
     dataTier:    "detector-simulated"
     compressionLevel: 1 #zlib argument (0-9)

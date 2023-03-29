@@ -12,7 +12,7 @@ services:
   MemoryTracker:     @local::dune_memory_tracker
   RandomNumberGenerator: {} #ART native random number generator
   FileCatalogMetadata:  @local::art_file_catalog_mc
-  @table::protodune_refactored_simulation_services
+                        @table::protodune_refactored_simulation_services
 }
 
 source:

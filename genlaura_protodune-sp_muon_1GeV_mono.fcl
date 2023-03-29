@@ -11,7 +11,7 @@ process_name: SinglesGen
 
 # source.firstRun: 20000014
 
-physics.producers.generator.PDG: [ -13 ]           # mu+
+physics.producers.generator.PDG: [ -13 ]             # mu+
 # physics.producers.generator.PosDist: 0             # Flat position dist.
 # physics.producers.generator.X0: [ 200. ]
 # physics.producers.generator.Y0: [ 200. ]
@@ -21,7 +21,7 @@ physics.producers.generator.PDG: [ -13 ]           # mu+
 # physics.producers.generator.SigmaY: [ 0.0 ]        # y = (-6, 6)
 # physics.producers.generator.SigmaZ: [ 0.0 ]        # z = (0, 13.9)
 # physics.producers.generator.SigmaT: [ 0.0 ]        # In time
-physics.producers.generator.PDist: 0               # Flat momentum dist. (0.1-2.0 GeV)
+physics.producers.generator.PDist: 0                 # Flat momentum dist. (0.1-2.0 GeV)
 physics.producers.generator.P0: [ 1 ]
 physics.producers.generator.SigmaP: [ 0.0 ]
 # physics.producers.generator.AngleDist: 0           # Flat angle dist.

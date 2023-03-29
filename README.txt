@@ -19,4 +19,5 @@ lar -c muon_dunefd_refactored_detsim_stage2.fcl -s dunefd_muonLaura_1GeV_mono_g4
 missing reco step
 
 lar -c eventdump.fcl dunefd_muonLaura_1GeV_mono_g4_stage1_g4_stage2_detsim_stage1_detsim_stage2_gen.root
+lar -c run_MyAnalysis.fcl dunefd_muonLaura_1GeV_mono_g4_stage1_g4_stage2_detsim_stage1_detsim_stage2_gen.root
 ### std::vector<sim::SimEnergyDeposit> is stored in my configuration --> EdepLabel:"IonAndScint" (g4stage2) ###

@@ -37,9 +37,9 @@ physics:
 
     #retain largeant name for compatibility
     largeant:    @local::protodune_larg4
-    # IonAndScint: @local::dunefd_ionandscint
-    # PDFastSim:   @local::dunefd_pdfastsim
-    # elecDrift:   @local::dunefd_elecdrift
+    # IonAndScint: @local::protodune_ionandscint
+    # PDFastSim:   @local::protodune_pdfastsim
+    # elecDrift:   @local::protodune_elecdrift
     rns: {module_type: "RandomNumberSaver"}
   }
 
