@@ -1,0 +1,72 @@
+# RUN with the output of the gen step as input:
+# lar -c NAME.fcl -s OUTPUT.root
+
+
+#include "services_refactored_pdune.fcl"
+#include "IonAndScint_dune.fcl"
+#include "PDFastSim_dune.fcl"
+
+process_name: G4Stage2
+
+services:
+{
+  TFileService:          { fileName: "g4_stage2_protodune-sp_hist.root" }
+  TimeTracker:           {}
+  MemoryTracker:         {} # default is one
+  RandomNumberGenerator: {} #ART native random number generator
+  message:               @local::standard_info
+  #message:              @local::dune_message_services_prod_debug
+
+  @table::protodune_refactored_simulation_services
+
+  NuRandomService:       @local::dune_prod_seedservice
+}
+
+source:
+{
+  module_type: RootInput
+  maxEvents:  30000
+  fileNames: ["g4_stage1_protodune-sp.root"]
+}
+
+physics:
+{
+
+  producers:
+  {
+    rns:         { module_type: "RandomNumberSaver" }
+    IonAndScint: @local::protodune_ionandscint
+    PDFastSim:   @local::protodune_pdfastsim_pvs
+  }
+
+  analyzers:
+  {
+
+  }
+
+  simulate: [ rns, IonAndScint, PDFastSim ]
+  stream1: [ out1 ]
+
+  trigger_paths: [  simulate ] 
+  end_paths:     [  stream1  ]  
+
+}
+
+outputs:
+{
+  out1:
+  {
+    module_type: RootOutput
+    # fileName:    "%ifb_g4_stage1_gen.root" 
+    fileName:    "protodune-sp_pionLaura_1GeV_mono_g4_stage1_g4_stage2_gen.root" #default file name, can override from command line with -o or --output
+    dataTier:    "simulated"
+    # outputCommands: [ "keep *", "drop sim::SimEnergyDeposits_largeant_*_*"]
+    outputCommands: [ "keep *" ]
+    fastCloning: true #will fail if the split level is not the same as for the gen stage, so turn it off
+    compressionLevel: 1 #zlib argument (0-9) 
+    #basketSize: 8192 #[Byte] buffer size at 8k
+    #splitLevel: 0 #reduces number of buffers
+    #treeMaxVirtualSize: 1 #[Byte] limits number of buffers/branch to 1 (default is 10)
+  }
+}
+services.PhotonVisibilityService: @local::dune10kt_1x2x6_photonvisibilityservice
